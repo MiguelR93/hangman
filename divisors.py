@@ -7,8 +7,13 @@ def divisors(num):
 
 
 def run():
-    num = int(input("Ingresa un número: ")) #user type a number
-    print(divisors(num))
+    try:
+        num = int(input("Ingresa un número: ")) #user type a number
+        assert num > 0, "Debes ingresar un número positivo"
+        print(divisors(num))
+    except AssertionError as AE:
+        print(AE)
+        run()
 
 if __name__ == '__main__':
     run()
