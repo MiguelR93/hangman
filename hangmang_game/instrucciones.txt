@@ -1,0 +1,18 @@
+crea el archivo juego_del_ahorcado.py
+al iniciar el juego debe imprimirse:
+	Adivina la palabra!
+	#imprimir una cangidad de guiones bajos = a la extensión de la palabra
+	Ingresa una letra:
+Incorpora comprehensions, manejo de errores y manejo de archivos
+utiliza el archivo data.txt y léelo para obtener las palabras
+
+Investiga la función enumerate()
+el método .get() de los diccionarios puede servirte.
+las sentencias te servirán para limpiar la pantalla:
+	os.system("cls") -> Windos
+	os.system("clear") -> Unix
+
+Mejora el juego:
+- Añade un sistema de puntos.
+- Dibuja al "ahorcado" en cada jugada con código ASCII
+- Mejora la interfaz.
