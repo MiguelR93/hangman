@@ -4,7 +4,7 @@ def run():
         for i in word:
             data.append(str(i))
     print(data)
-    origin = {n:data[n] for n in range(len(data))}
+    origin = {n:data[n] + str(len(data[n])) for n in range(len(data))}
     print(origin)
 
 
