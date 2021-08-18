@@ -15,12 +15,48 @@ def run():
     # print(origin)
     # # elegir una palabra aleatoriamente desde origin:
     # print(len(data))
-    alea = random.randint(0,len(data))
-    elegida = origin[alea]
+    # alea = random.randint(0,len(data))
+    elegidaNato = origin[random.randint(0,len(data))]
+    elegidaA = elegidaNato.replace("á",'a')
+    elegidaE = elegidaA.replace('é','e')
+    elegidaI = elegidaE.replace('í','i')
+    elegidaO = elegidaE.replace('ó','o')
+    elegida = elegidaO.replace('ú','u')
+    # # aquí planeo guardar lo que el jugador va develando
+    # descubierto = len(elegida)*"_"
+    descubierto = {i:"_" for i in range(len(elegida))}
+    print(f"esto es descubierto: {descubierto}")
     # print(alea)
     # # imprimir los espacios que ocupa la palabra y el mensaje de interacción con el usuario
-    input(f"""{len(elegida)*"_ "}\n\nIngresa una letra: """)
-    # # pedirle al usuario que ingrese una letra hasta que adivine    
+    # input(f"""{descubierto}\n\nIngresa una letra: """)
+    # # pedirle al usuario que ingrese una letra hasta que adivine
+
+
+    # # temporalmente mostramos la palabra aleatoria
+    palabra = {i:a for i,a in enumerate(elegida)}
+    print(f"esto es palabra: {palabra}")
+
+    # estado = palabra == descubierto
+
+    # print(f"son iguales la elegida y la descubierta? {estado}")
+
+    # # aquí empezamos a jugar
+    while palabra != descubierto:
+        for i in descubierto.values():
+            print(i.upper(), end=" ")
+        letra = input("""\n\nIngresa una letra: """)
+        for i,a in palabra.items():
+            # print(f"{i}:{a}")
+            if letra == palabra[i]:
+                # # si esto es verdad, debemos alterar a "descubierto"
+                # print("sí")
+                # # con esta línea sustituimos
+                descubierto[i] = letra
+    for i in descubierto.values():
+            print(i.upper(), end="")
+    print("")
+
+
 
 
 if __name__ == "__main__":
