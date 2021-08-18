@@ -18,11 +18,17 @@ def run():
     # alea = random.randint(0,len(data))
     elegidaNato = origin[random.randint(0,len(data))]
     elegidaA = elegidaNato.replace("á",'a')
+    # print(f"esto es elegidaA: {elegidaA}")
     elegidaE = elegidaA.replace('é','e')
+    # print(f"esto es elegidaE: {elegidaE}")
     elegidaI = elegidaE.replace('í','i')
-    elegidaO = elegidaE.replace('ó','o')
+    # print(f"esto es elegidaI: {elegidaI}")
+    elegidaO = elegidaI.replace('ó','o')
+    # print(f"esto es elegidaO: {elegidaO}")
     elegidaU = elegidaO.replace('ú','u')
+    # print(f"esto es elegidaU: {elegidaU}")
     elegida = elegidaU.upper()
+    # print(f"esto es elegida: {elegida}")
     # # aquí planeo guardar lo que el jugador va develando
     # descubierto = len(elegida)*"_"
     descubierto = {i:"_" for i in range(len(elegida))}
