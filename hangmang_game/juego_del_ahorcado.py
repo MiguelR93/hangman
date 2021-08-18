@@ -21,7 +21,8 @@ def run():
     elegidaE = elegidaA.replace('é','e')
     elegidaI = elegidaE.replace('í','i')
     elegidaO = elegidaE.replace('ó','o')
-    elegida = elegidaO.replace('ú','u')
+    elegidaU = elegidaO.replace('ú','u')
+    elegida = elegidaU.upper()
     # # aquí planeo guardar lo que el jugador va develando
     # descubierto = len(elegida)*"_"
     descubierto = {i:"_" for i in range(len(elegida))}
@@ -43,17 +44,17 @@ def run():
     # # aquí empezamos a jugar
     while palabra != descubierto:
         for i in descubierto.values():
-            print(i.upper(), end=" ")
+            print(i, end=" ")
         letra = input("""\n\nIngresa una letra: """)
         for i,a in palabra.items():
             # print(f"{i}:{a}")
-            if letra == palabra[i]:
+            if letra.upper() == palabra[i]:
                 # # si esto es verdad, debemos alterar a "descubierto"
                 # print("sí")
                 # # con esta línea sustituimos
-                descubierto[i] = letra
+                descubierto[i] = letra.upper()
     for i in descubierto.values():
-            print(i.upper(), end="")
+            print(i, end="")
     print("")
 
 
