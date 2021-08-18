@@ -53,8 +53,9 @@ def run():
                 # print("sí")
                 # # con esta línea sustituimos
                 descubierto[i] = letra.upper()
-    for i in descubierto.values():
-            print(i, end="")
+    # for i in descubierto.values():
+    #         print(i, end="")
+    print(elegidaNato.upper())
     print("")
 
 
