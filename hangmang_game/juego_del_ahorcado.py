@@ -1,8 +1,6 @@
 import random, os
 
 def run():
-    # # limpiando la pantalla
-    os.system("clear")
     # # creando una lista que contendrá las palabras del documento "data.txt"
     data = []
     # # extrayendo las palabras de "data.txt"
@@ -32,7 +30,7 @@ def run():
     # # aquí planeo guardar lo que el jugador va develando
     # descubierto = len(elegida)*"_"
     descubierto = {i:"_" for i in range(len(elegida))}
-    print(f"esto es descubierto: {descubierto}")
+    # print(f"esto es descubierto: {descubierto}")
     # print(alea)
     # # imprimir los espacios que ocupa la palabra y el mensaje de interacción con el usuario
     # input(f"""{descubierto}\n\nIngresa una letra: """)
@@ -41,14 +39,23 @@ def run():
 
     # # temporalmente mostramos la palabra aleatoria
     palabra = {i:a for i,a in enumerate(elegida)}
-    print(f"esto es palabra: {palabra}")
+    # print(f"esto es palabra: {palabra}")
 
     # estado = palabra == descubierto
 
     # print(f"son iguales la elegida y la descubierta? {estado}")
 
+    # # contador de oportunidades:
+    OPORTUNIDADES = 5
+
     # # aquí empezamos a jugar
-    while palabra != descubierto:
+    while OPORTUNIDADES > 0 and palabra != descubierto:
+        # # limpiando la pantalla
+        os.system("clear")
+        # print(f"OPORTUNIDADES vale: {OPORTUNIDADES}")
+        print(f"\nOportunidades restantes: {OPORTUNIDADES}\n")
+        CUENTA = 0
+        # print(f"CUENTA vale: {CUENTA}")
         for i in descubierto.values():
             print(i, end=" ")
         letra = input("""\n\nIngresa una letra: """)
@@ -59,11 +66,19 @@ def run():
                 # print("sí")
                 # # con esta línea sustituimos
                 descubierto[i] = letra.upper()
-    # for i in descubierto.values():
-    #         print(i, end="")
-    print(elegidaNato.upper())
-    print("")
+                CUENTA += 1
+        # print(f"ahora CUENTA vale: {CUENTA}")
+        if CUENTA == 0:
+            OPORTUNIDADES -= 1
+            print(f"\n¡Error! Te quedan {OPORTUNIDADES} oportunidades\n")
+        # print(f"ahora OPORTUNIDADES vale: {OPORTUNIDADES}")
 
+    if OPORTUNIDADES == 0:
+        print(f"¡PERDISTE! La palabra era {elegidaNato} ")
+    elif palabra == descubierto:
+        # for i in descubierto.values():
+        #         print(i, end="")
+        print(f"¡GANASTE! La palabra es {elegidaNato}")
 
 
 
