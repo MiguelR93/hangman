@@ -116,6 +116,7 @@ def run():
     # input(f"""{descubierto}\n\nIngresa una letra: """)
     # # pedirle al usuario que ingrese una letra hasta que adivine
 
+    letrasAdmitidas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
     # # temporalmente mostramos la palabra aleatoria
     palabra = {i:a for i,a in enumerate(elegida)}
