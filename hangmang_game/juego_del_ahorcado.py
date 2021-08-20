@@ -7,12 +7,16 @@ seis = """
             |
             |
             |
+            |
+            |
 ==============="""
 
 cinco = """
     +-------+
     |       |
-  (x_x)     |
+  (._.)     |
+            |
+            |
             |
             |
             |
@@ -21,8 +25,10 @@ cinco = """
 cuatro = """
     +-------+
     |       |
-  (x_x)     |
+  (o_o)     |
     |       |
+            |
+            |
             |
             |
 ==============="""
@@ -30,8 +36,10 @@ cuatro = """
 tres = """
     +-------+
     |       |
-  (x_x)     |
+  (O_O)     |
    /|       |
+            |
+            |
             |
             |
 ==============="""
@@ -39,8 +47,10 @@ tres = """
 dos = """
     +-------+
     |       |
-  (x_x)     |
+  (O_O')    |
    /|\      |
+            |
+            |
             |
             |
 ==============="""
@@ -48,9 +58,11 @@ dos = """
 uno = """
     +-------+
     |       |
-  (x_x)     |
+  (T_T)     |
    /|\      |
    /        |
+            |
+            |
             |
 ==============="""
 
@@ -61,7 +73,21 @@ cero = """
    /|\      |
    / \      |
             |
+            |
+            |
 ==============="""
+
+salvado = """
+    +-------+
+    |       |
+            |
+            |
+  Ufff!!!   |
+ \(OoO)/    |
+    |       |
+   / \      |
+===============
+"""
 
 def dibu(OPORTUNIDADES):
     if OPORTUNIDADES == 6:
@@ -122,7 +148,7 @@ def run():
     palabra = {i:a for i,a in enumerate(elegida)}
     # print(f"esto es palabra: {palabra}")
 
-    # estado = palabra == descubierto
+    letrasUsadas = []
 
     # print(f"son iguales la elegida y la descubierta? {estado}")
 
@@ -133,6 +159,7 @@ def run():
     while OPORTUNIDADES > 0 and palabra != descubierto:
         # # limpiando la pantalla
         os.system("clear")
+        print(letrasUsadas)
         # print(f"OPORTUNIDADES vale: {OPORTUNIDADES}")
         dibu(OPORTUNIDADES)
         # print(f"\nOportunidades restantes: {OPORTUNIDADES}\n")
@@ -141,30 +168,57 @@ def run():
         for i in descubierto.values():
             print(i, end=" ")
         letra = input("""\n\nIngresa una letra: """)
-        for i,a in palabra.items():
-            # print(f"{i}:{a}")
-            if letra.upper() == palabra[i]:
-                # # si esto es verdad, debemos alterar a "descubierto"
-                # print("sí")
-                # # con esta línea sustituimos
-                descubierto[i] = letra.upper()
-                CUENTA += 1
-        # print(f"ahora CUENTA vale: {CUENTA}")
-        if CUENTA == 0:
-            OPORTUNIDADES -= 1
-            # print(f"\n¡Error! Te quedan {OPORTUNIDADES} oportunidades\n")
-        # print(f"ahora OPORTUNIDADES vale: {OPORTUNIDADES}")
+        # # evaluando que lo registrado sea una letra:
+        CONTADORDELETRASADMITIDAS = 0
+        for i in letrasAdmitidas:
+            if letra != i:
+                CONTADORDELETRASADMITIDAS += 1
+        if CONTADORDELETRASADMITIDAS > 26:
+            print("eso no era una letra")
+            input("persiona enter")
+            continue
+        
+        LETRAREPETIDA = 0
+        # # la letra ya fue usada?
+        for i in letrasUsadas:
+            if i == letra:
+                print("esta letra ya fue usada")
+                input("presione enter")
+                LETRAREPETIDA += 1
+                break
+        
+        # # reiniciar si ya se usó la letra:
+        if LETRAREPETIDA > 0:
+            continue
+        else:
+            for i,a in palabra.items():
+                # print(f"{i}:{a}")
+                if letra.upper() == palabra[i]:
+                    # # si esto es verdad, debemos alterar a "descubierto"
+                    # print("sí")
+                    # # con esta línea sustituimos
+                    descubierto[i] = letra.upper()
+                    CUENTA += 1
+            # print(f"ahora CUENTA vale: {CUENTA}")
+            if CUENTA == 0:
+                OPORTUNIDADES -= 1
+                # print(f"\n¡Error! Te quedan {OPORTUNIDADES} oportunidades\n")
+                # print(f"ahora OPORTUNIDADES vale: {OPORTUNIDADES}")
+            letrasUsadas.append(letra)
     
 
     # # limpiando la pantalla
     os.system("clear")
 
     if OPORTUNIDADES == 0:
+        print(letrasUsadas)
         dibu(OPORTUNIDADES)
         print(f"\n¡PERDISTE! La palabra era {elegidaNato}.")
     elif palabra == descubierto:
         # for i in descubierto.values():
         #         print(i, end="")
+        print(letrasUsadas)
+        print(salvado)
         print(f"\n¡GANASTE! La palabra es {elegidaNato}.")
 
 
