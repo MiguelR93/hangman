@@ -1,5 +1,18 @@
 import random, os
 
+def dibu(OPORTUNIDADES):
+    if OPORTUNIDADES == 4:
+        print("cuatro")
+    elif OPORTUNIDADES == 3:
+        print("tres")
+    elif OPORTUNIDADES == 2:
+        print("dos")
+    elif OPORTUNIDADES == 1:
+        print("uno")
+    elif OPORTUNIDADES == 0:
+        print("cero")
+
+
 def run():
     # # creando una lista que contendrá las palabras del documento "data.txt"
     data = []
@@ -72,6 +85,7 @@ def run():
             OPORTUNIDADES -= 1
             print(f"\n¡Error! Te quedan {OPORTUNIDADES} oportunidades\n")
         # print(f"ahora OPORTUNIDADES vale: {OPORTUNIDADES}")
+        dibu(OPORTUNIDADES)
 
     if OPORTUNIDADES == 0:
         print(f"¡PERDISTE! La palabra era {elegidaNato} ")
