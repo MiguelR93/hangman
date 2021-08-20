@@ -1,16 +1,83 @@
 import random, os
 
+seis = """
+    +-------+
+    |       |
+            |
+            |
+            |
+            |
+==============="""
+
+cinco = """
+    +-------+
+    |       |
+  (x_x)     |
+            |
+            |
+            |
+==============="""
+
+cuatro = """
+    +-------+
+    |       |
+  (x_x)     |
+    |       |
+            |
+            |
+==============="""
+
+tres = """
+    +-------+
+    |       |
+  (x_x)     |
+   /|       |
+            |
+            |
+==============="""
+
+dos = """
+    +-------+
+    |       |
+  (x_x)     |
+   /|\      |
+            |
+            |
+==============="""
+
+uno = """
+    +-------+
+    |       |
+  (x_x)     |
+   /|\      |
+   /        |
+            |
+==============="""
+
+cero = """
+    +-------+
+    |       |
+  (x_x)     |
+   /|\      |
+   / \      |
+            |
+==============="""
+
 def dibu(OPORTUNIDADES):
-    if OPORTUNIDADES == 4:
-        print("cuatro")
+    if OPORTUNIDADES == 6:
+        print(seis)
+    elif OPORTUNIDADES == 5:
+        print(cinco)
+    elif OPORTUNIDADES == 4:
+        print(cuatro)
     elif OPORTUNIDADES == 3:
-        print("tres")
+        print(tres)
     elif OPORTUNIDADES == 2:
-        print("dos")
+        print(dos)
     elif OPORTUNIDADES == 1:
-        print("uno")
+        print(uno)
     elif OPORTUNIDADES == 0:
-        print("cero")
+        print(cero)
 
 
 def run():
@@ -59,14 +126,15 @@ def run():
     # print(f"son iguales la elegida y la descubierta? {estado}")
 
     # # contador de oportunidades:
-    OPORTUNIDADES = 5
+    OPORTUNIDADES = 6
 
     # # aquí empezamos a jugar
     while OPORTUNIDADES > 0 and palabra != descubierto:
         # # limpiando la pantalla
         os.system("clear")
         # print(f"OPORTUNIDADES vale: {OPORTUNIDADES}")
-        print(f"\nOportunidades restantes: {OPORTUNIDADES}\n")
+        dibu(OPORTUNIDADES)
+        # print(f"\nOportunidades restantes: {OPORTUNIDADES}\n")
         CUENTA = 0
         # print(f"CUENTA vale: {CUENTA}")
         for i in descubierto.values():
@@ -83,16 +151,20 @@ def run():
         # print(f"ahora CUENTA vale: {CUENTA}")
         if CUENTA == 0:
             OPORTUNIDADES -= 1
-            print(f"\n¡Error! Te quedan {OPORTUNIDADES} oportunidades\n")
+            # print(f"\n¡Error! Te quedan {OPORTUNIDADES} oportunidades\n")
         # print(f"ahora OPORTUNIDADES vale: {OPORTUNIDADES}")
-        dibu(OPORTUNIDADES)
+    
+
+    # # limpiando la pantalla
+    os.system("clear")
 
     if OPORTUNIDADES == 0:
-        print(f"¡PERDISTE! La palabra era {elegidaNato} ")
+        dibu(OPORTUNIDADES)
+        print(f"\n¡PERDISTE! La palabra era {elegidaNato}.")
     elif palabra == descubierto:
         # for i in descubierto.values():
         #         print(i, end="")
-        print(f"¡GANASTE! La palabra es {elegidaNato}")
+        print(f"\n¡GANASTE! La palabra es {elegidaNato}.")
 
 
 
