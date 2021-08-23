@@ -116,13 +116,13 @@ def run():
 
     origin = {n:data[n] for n in range(len(data))} # dictionary with words from data // diccionario con palabras de data.txt
     elegidaNato = origin[random.randint(0,len(data))] # chose a random word from origin // elegir una palabra aleatoriamente desde origin:
-    elegida = elegidaNato.replace("á",'a').replace('é','e').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').upper()
+    elegida = elegidaNato.replace("á",'a').replace('é','e').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').upper() # modifies the word to make it easier to understand for the program
     descubierto = {i:"_" for i in range(len(elegida))} # store words revelated by the player // guarda lo que el jugador va develando
     letrasAdmitidas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'] # valid characters
     palabra = {i:a for i,a in enumerate(elegida)} # It creates a dictionary with each character of the chosen word
     letrasUsadas = [] # store valid characters used by the player
-
     OPORTUNIDADES = 6 # chance's counter // contador de oportunidades
+
 
     # Game begin
     while OPORTUNIDADES > 0 and palabra != descubierto:
