@@ -106,12 +106,13 @@ def dibu(OPORTUNIDADES):
         print(cero)
 
 
+
 def run():
     data = [] # it creates a list with words from data.txt // crea una lista que contendrá las palabras del documento "data.txt
     with open("./data.txt", "r", encoding="utf-8") as word: # It opens the data.txt document and gets words form it // extrayendo las palabras de "data.txt"
         for i in word:
-            width = len(i) - 1
-            data.append(i[:width])
+            width = len(i) - 1 # evalueta number of characters of each taken word
+            data.append(i[:width]) # adds the taken word to data
 
 
     origin = {n:data[n] for n in range(len(data))} # dictionary with words from data // diccionario con palabras de data.txt
@@ -163,7 +164,6 @@ def run():
     
 
     os.system("clear")
-
     if OPORTUNIDADES == 0:
         print(letrasUsadas)
         dibu(OPORTUNIDADES)
