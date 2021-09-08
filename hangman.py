@@ -142,11 +142,16 @@ def run():
         for i in descubierto.values():
             print(i, end=" ")
         letra = input("""\n\nIngresa una letra: """)
-        CONTADORDELETRASADMITIDAS = 0 # Counter for valid characters in every loop; it must be lower than 27
-        for i in letrasAdmitidas:
-            if letra != i:
-                CONTADORDELETRASADMITIDAS += 1
-        if CONTADORDELETRASADMITIDAS > 26:
+        # CONTADORDELETRASADMITIDAS = 0 # Counter for valid characters in every loop; it must be lower than 27
+        # for i in letrasAdmitidas:
+        #     if letra != i:
+        #         CONTADORDELETRASADMITIDAS += 1
+        # if CONTADORDELETRASADMITIDAS > 26:
+        #     print("eso no era una letra")
+        #     input("persiona enter")
+        #     continue
+
+        if letra not in letrasAdmitidas:
             print("eso no era una letra")
             input("persiona enter")
             continue
