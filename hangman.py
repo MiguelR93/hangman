@@ -155,16 +155,20 @@ def run():
             print("eso no era una letra")
             input("persiona enter")
             continue
+        elif letra in letrasUsadas:
+            print("esta letra ya fue usada")
+            input("presione enter")
+            LETRAREPETIDA += 1
         
-        LETRAREPETIDA = 0 # It increase if the characters has been used before
-        for i in letrasUsadas:
-            if i == letra:
-                print("esta letra ya fue usada")
-                input("presione enter")
-                LETRAREPETIDA += 1
-                break
+        # LETRAREPETIDA = 0 # It increase if the characters has been used before
+        # for i in letrasUsadas:
+        #     if i == letra:
+        #         print("esta letra ya fue usada")
+        #         input("presione enter")
+        #         LETRAREPETIDA += 1
+        #         break
         
-        if LETRAREPETIDA > 0: # It restart the loop if the character has been used before // reiniciar si ya se usó la letra
+        if letra in letrasUsadas > 0: # It restart the loop if the character has been used before // reiniciar si ya se usó la letra
             continue
         else:
             for i,a in palabra.items():
