@@ -92,7 +92,7 @@ salvado = """
 data = [] # it creates a list with words from data.txt // crea una lista que contendrá las palabras del documento "data.txt
 origin = {} # dictionary with words from data // diccionario con palabras de data.txt
 elegidaNato = [] # chose a random word from origin // elegir una palabra aleatoriamente desde origin:
-elegida = 0 # modifies the word to make it easier to understand for the program
+elegida = [] # modifies the word to make it easier to understand for the program
 descubierto = 0 # store words revelated by the player // guarda lo que el jugador va develando
 letrasAdmitidas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'] # valid characters
 palabra = 0 # It creates a dictionary with each character of the chosen word
@@ -132,7 +132,8 @@ def run():
     # origin = {n:data[n] for n in range(len(data))}
     Nato = origin[random.randint(0,len(data))]
     elegidaNato.append(Nato)
-    elegida = elegidaNato[0].replace("á",'a').replace('é','e').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').upper()
+    elegida.append(elegidaNato)
+    elegida[0].replace("á",'a').replace('é','e').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').upper()
     descubierto = {i:"_" for i in range(len(elegida))}
     palabra = {i:a for i,a in enumerate(elegida)}
 
