@@ -132,8 +132,7 @@ def run():
     # origin = {n:data[n] for n in range(len(data))}
     Nato = origin[random.randint(0,len(data))]
     elegidaNato.append(Nato)
-    elegida.append(elegidaNato)
-    elegida[0].replace("á",'a').replace('é','e').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').upper()
+    # elegida = elegidaNato[0].replace("á",'a').replace('é','e').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').upper()
     descubierto = {i:"_" for i in range(len(elegida))}
     palabra = {i:a for i,a in enumerate(elegida)}
 
